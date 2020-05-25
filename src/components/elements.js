@@ -1,20 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import selectedTheme from './themeManager';
-import MaterialIcon from 'material-icons-react';
+import React from 'react'
+import styled from 'styled-components'
+import selectedTheme from './themeManager'
+import MaterialIcon from 'material-icons-react'
 
 // File for elements that are/can be reused across the entire site.
 
 export const handleResponse = response => {
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load data.');
-};
+  if (response.ok) {
+    return response.json()
+  }
+  throw new Error('Failed to load data.')
+}
 
 export const ListContainer = styled.div`
     padding: 2rem 0 2rem 0;
-`;
+`
 
 export const Headline = styled.h3`
     display: inline-block;
@@ -24,7 +24,7 @@ export const Headline = styled.h3`
     margin: 0px;
     font-size: 1.5rem;
     color: ${selectedTheme.mainColor};
-`;
+`
 
 export const ItemList = styled.ul`
     display: grid;
@@ -32,13 +32,13 @@ export const ItemList = styled.ul`
     grid-gap: 1rem;
     padding: 0;
     list-style: none;
-`;
+`
 
 export const Item = styled.li`
     overflow: hidden;
     position: relative;
     list-style: none;
-`;
+`
 
 export const Button = styled.button`
     font-family: Roboto, sans-serif;
@@ -53,7 +53,7 @@ export const Button = styled.button`
     &:hover {
         cursor: pointer;
     }
-`;
+`
 
 const StyledButton = styled.button`
     float: right;
@@ -63,34 +63,34 @@ const StyledButton = styled.button`
     &:hover {
         cursor: pointer;
     }
-`;
+`
 
 export const RefreshButton = styled(Button)`
     display: relative;
     top: 0;
     float: right;
-`;
+`
 
 export const ErrorMessage = styled.p`
     color: red;
-`;
+`
 
 export const IconButton = props => {
-    if (
-        props.icon &&
+  if (
+    props.icon &&
         props.icon !== '' &&
         props.icon !== undefined &&
         props.onClick &&
         props.onClick !== '' &&
         props.onClick !== undefined
-    ) {
-        return (
-            <StyledButton onClick={props.onClick}>
-                <MaterialIcon
-                    icon={props.icon}
-                    color={selectedTheme.mainColor}
-                />
-            </StyledButton>
-        );
-    }
-};
+  ) {
+    return (
+      <StyledButton onClick={props.onClick}>
+        <MaterialIcon
+          icon={props.icon}
+          color={selectedTheme.mainColor}
+        />
+      </StyledButton>
+    )
+  }
+}
