@@ -9,6 +9,8 @@ import BookmarkList from './components/bookmarkList'
 import SettingsModal from './components/settingsModal'
 
 import selectedTheme from './components/themeManager'
+import Toaster from './logger'
+// import Logger from 'console-toaster'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -38,18 +40,21 @@ const AppContainer = styled.div`
     padding: 10px;
 `
 
-const App = () => (
-  <ZeitProvider>
-    <CssBaseline />
-    <GlobalStyle />
-    <AppContainer>
-      <SearchBar />
-      <SettingsModal />
-      <Greeter />
-      <AppList />
-      <BookmarkList />
-    </AppContainer>
-  </ZeitProvider>
-)
+const App = () => {
+  return (
+    <ZeitProvider>
+      <Toaster />
+      <CssBaseline />
+      <GlobalStyle />
+      <AppContainer>
+        <SearchBar />
+        <SettingsModal />
+        <Greeter />
+        <AppList />
+        <BookmarkList />
+      </AppContainer>
+    </ZeitProvider>
+  )
+}
 
 export default App
