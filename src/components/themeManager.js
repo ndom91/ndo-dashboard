@@ -1,9 +1,9 @@
 const defaultTheme = {
-  label: 'Classic',
+  label: 'ndo',
   value: 0,
-  mainColor: '#000000',
-  accentColor: '#1e272e',
-  backgroundColor: '#ffffff'
+  mainColor: '#f5f5f5',
+  accentColor: '#ff92d0',
+  backgroundColor: '#221037'
 }
 
 const setTheme = theme => {
@@ -20,7 +20,7 @@ const getTheme = () => {
 
   if (
     localStorage.getItem('theme') &&
-        localStorage.getItem('theme') !== undefined
+    localStorage.getItem('theme') !== undefined
   ) {
     selectedTheme = JSON.parse(localStorage.getItem('theme'))
   }

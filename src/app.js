@@ -9,8 +9,7 @@ import BookmarkList from './components/bookmarkList'
 import SettingsModal from './components/settingsModal'
 
 import selectedTheme from './components/themeManager'
-import Toaster from './logger'
-// import Logger from 'console-toaster'
+import './style.css'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -43,7 +42,6 @@ const AppContainer = styled.div`
 const App = () => {
   return (
     <ZeitProvider>
-      <Toaster />
       <CssBaseline />
       <GlobalStyle />
       <AppContainer>
