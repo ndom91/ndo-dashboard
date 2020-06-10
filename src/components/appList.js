@@ -54,13 +54,23 @@ const App = styled.div`
 
 const useAppData = () => {
   const [appData, setAppData] = useState({ apps: [], error: false })
-  const fetchAppData = useCallback(() => {
+  const fetchAppData = useCallback(async () => {
     (process.env.NODE_ENV === 'production'
       ? fetch('/apps.json').then(handleResponse)
       : import('./data/apps.json')
     )
-      .then(jsonResponse => {
-        setAppData({ ...jsonResponse, error: false })
+      .then(async jsonResponse => {
+        const resp = await fetch('https://wtfismyip.com/json').then(data => data.json())
+        const isp = resp.YourFuckingISP
+        console.log('ISP: ', isp)
+
+        const unitymediaRegex = /unitymedia/i
+        const ghostnetRegex = /ghostnet./i
+        unitymediaRegex.test(isp)
+          ? setAppData({ apps: jsonResponse.apps.textor, error: false })
+          : ghostnetRegex.test(isp)
+            ? setAppData({ apps: jsonResponse.apps.newtelco, error: false })
+            : setAppData({ apps: [{ name: 'No App', displayURL: 'For this environment', icon: 'error' }], error: true })
       })
       .catch(error => {
         setAppData({ apps: [], error: error.message })
@@ -75,8 +85,7 @@ const useAppData = () => {
 
 const AppList = () => {
   const {
-    appData: { apps, error },
-    fetchAppData
+    appData: { apps, error }
   } = useAppData()
   return (
     <ListContainer>

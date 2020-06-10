@@ -9,8 +9,8 @@ const SearchInput = styled.input`
     width: 100%;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid ${selectedTheme.accentColor};
-    background: none;
+    border-bottom: 5px solid ${selectedTheme.accentColor};
+    background: transparent;
     border-radius: 0;
     color: ${selectedTheme.mainColor};
 `
@@ -42,8 +42,7 @@ const useSearchProviders = () => {
 
 const SearchBar = () => {
   const {
-    searchProviders: { providers, error },
-    fetchSearchProviders
+    searchProviders: { providers, error }
   } = useSearchProviders()
 
   const [input, setInput] = useState()

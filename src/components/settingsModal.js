@@ -59,10 +59,10 @@ const HeadCell = styled.th`
     background: none;
 `
 
-const InfoText = styled.p`
-    font-weight: 400;
-    padding: 0.5rem 0 0.5rem 0;
-`
+// const InfoText = styled.p`
+//     font-weight: 400;
+//     padding: 0.5rem 0 0.5rem 0;
+// `
 
 const SelectorStyle = {
   control: provided => ({
@@ -135,8 +135,7 @@ const SettingsModal = () => {
   const [newTheme, setNewTheme] = useState()
 
   const {
-    themeData: { themes, error },
-    fetchThemeData
+    themeData: { themes, error }
   } = useThemeData()
 
   return (
@@ -166,10 +165,10 @@ const SettingsModal = () => {
             <Button
               onClick={() => setTheme(JSON.stringify(newTheme))}
             >
-                            Apply
+              Apply
             </Button>
             <Button onClick={() => window.location.reload()}>
-                            Refresh
+              Refresh
             </Button>
           </FormContainer>
         </SelectContainer>
