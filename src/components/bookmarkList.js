@@ -8,45 +8,45 @@ import {
   ListContainer,
   ItemList,
   Item,
-  ErrorMessage
+  ErrorMessage,
 } from './elements'
 
 const Group = styled.h4`
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    margin: 0;
-    text-transform: uppercase;
-    color: ${selectedTheme.mainColor};
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: ${selectedTheme.mainColor};
 `
 
 const BookmarkGroup = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 2 1 auto;
-    padding: 1rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 auto;
+  padding: 1rem 0 1rem 0;
 `
 
 const Bookmark = styled.a`
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    text-decoration: none;
-    color: ${selectedTheme.accentColor};
-    padding: 10px 0 0 0;
-    font-size: 14px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: ${selectedTheme.accentColor};
+  padding: 10px 0 0 0;
+  font-size: 14px;
 
-    &:hover {
-        text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 const useBookmarkData = () => {
   const [bookmarkData, setBookmarkData] = useState({
     groups: [],
-    error: false
+    error: false,
   })
 
   const fetchBookmarkData = useCallback(() => {
-    (process.env.NODE_ENV === 'production'
+    ;(process.env.NODE_ENV === 'production'
       ? fetch('/bookmarks.json').then(handleResponse)
       : import('./data/bookmarks.json')
     )
@@ -66,7 +66,7 @@ const useBookmarkData = () => {
 
 const BookmarkList = () => {
   const {
-    bookmarkData: { groups, error }
+    bookmarkData: { groups, error },
   } = useBookmarkData()
   return (
     <ListContainer>

@@ -1,66 +1,78 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import MaterialIcon from 'material-icons-react'
+// import MaterialIcon from 'material-icons-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faHouseUser,
+  faMapSigns,
+  faUndo,
+  faWifi,
+  faLaptopMedical,
+} from '@fortawesome/free-solid-svg-icons'
+
 import styled from 'styled-components'
-
 import selectedTheme from './themeManager'
-
 import {
   handleResponse,
   Headline,
   ListContainer,
   ItemList,
   Item,
-  ErrorMessage
+  ErrorMessage,
 } from './elements'
 
+library.add(faHouseUser, faMapSigns, faUndo, faWifi, faLaptopMedical)
+
 const IconContainer = styled.div`
-    margin-right: 0.5vh;
+  margin-right: 0.5vh;
 `
 
 const DetailsContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 
 const Link = styled.a`
-    font-family: Roboto, sans-serif;
-    flex: 1 0 auto;
-    color: ${selectedTheme.mainColor};
-    font-weight: 500;
-    text-transform: uppercase;
-    margin: 0;
-    text-decoration: none;
-    font-size: 1rem;
+  font-family: Roboto, sans-serif;
+  flex: 1 0 auto;
+  color: ${selectedTheme.mainColor};
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
 
-    &:hover {
-        text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 const Description = styled.p`
-    font-family: Roboto, sans-serif;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 0.65rem;
-    font-weight: 400;
-    color: ${selectedTheme.accentColor};
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: ${selectedTheme.accentColor};
 `
 
 const App = styled.div`
-    display: flex;
-    flex-basis: 25%;
-    padding: 1rem;
+  display: flex;
+  flex-basis: 25%;
+  padding: 1rem;
 `
 
 const useAppData = () => {
   const [appData, setAppData] = useState({ apps: [], error: false })
   const fetchAppData = useCallback(async () => {
-    (process.env.NODE_ENV === 'production'
+    ;(process.env.NODE_ENV === 'production'
       ? fetch('/apps.json').then(handleResponse)
       : import('./data/apps.json')
     )
       .then(async jsonResponse => {
-        const resp = await fetch('https://wtfismyip.com/json').then(data => data.json())
+        const resp = await fetch('https://wtfismyip.com/json').then(data =>
+          data.json()
+        )
         const isp = resp.YourFuckingISP
         console.log('ISP: ', isp)
 
@@ -69,8 +81,17 @@ const useAppData = () => {
         unitymediaRegex.test(isp)
           ? setAppData({ apps: jsonResponse.apps.textor, error: false })
           : ghostnetRegex.test(isp)
-            ? setAppData({ apps: jsonResponse.apps.newtelco, error: false })
-            : setAppData({ apps: [{ name: 'No App', displayURL: 'For this environment', icon: 'error' }], error: true })
+          ? setAppData({ apps: jsonResponse.apps.newtelco, error: false })
+          : setAppData({
+              apps: [
+                {
+                  name: 'No App',
+                  displayURL: 'For this environment',
+                  icon: 'error',
+                },
+              ],
+              error: true,
+            })
       })
       .catch(error => {
         setAppData({ apps: [], error: error.message })
@@ -85,7 +106,7 @@ const useAppData = () => {
 
 const AppList = () => {
   const {
-    appData: { apps, error }
+    appData: { apps, error },
   } = useAppData()
   return (
     <ListContainer>
@@ -98,13 +119,18 @@ const AppList = () => {
             <Item key={[name, idx].join('')}>
               <App>
                 <IconContainer>
-                  <MaterialIcon
+                  <FontAwesomeIcon
                     icon={app.icon}
                     color={selectedTheme.mainColor}
                   />
                 </IconContainer>
                 <DetailsContainer>
-                  <Link href={app.URL}>{app.name}</Link>
+                  <Link
+                    target='_blank'
+                    rel='noreferrer noopener'
+                    href={app.URL}>
+                    {app.name}
+                  </Link>
                   <Description>{app.displayURL}</Description>
                 </DetailsContainer>
               </App>

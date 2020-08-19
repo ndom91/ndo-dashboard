@@ -11,52 +11,52 @@ import {
   Button,
   IconButton,
   ErrorMessage,
-  Headline as hl
+  Headline as hl,
 } from './elements'
 
 const Headline = styled(hl)`
-    padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 `
 
 const Modal = styled.div`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    padding: 1rem;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    border: 1px solid ${selectedTheme.mainColor};
-    background-color: ${selectedTheme.backgroundColor};
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: 1px solid ${selectedTheme.mainColor};
+  background-color: ${selectedTheme.backgroundColor};
 `
 
 const SelectContainer = styled.div`
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 `
 
 const FormContainer = styled.div`
-    display: grid;
-    grid-template-columns: auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
 `
 
 const Table = styled.table`
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    background: none;
-    color: ${selectedTheme.mainColor};
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  background: none;
+  color: ${selectedTheme.mainColor};
 `
 
 const TableRow = styled.tr`
-    border-bottom: 1px solid ${selectedTheme.mainColor};
+  border-bottom: 1px solid ${selectedTheme.mainColor};
 `
 
 const TableCell = styled.td`
-    background: none;
-    padding-top: 0.5rem;
+  background: none;
+  padding-top: 0.5rem;
 `
 
 const HeadCell = styled.th`
-    font-weight: 700;
-    background: none;
+  font-weight: 700;
+  background: none;
 `
 
 // const InfoText = styled.p`
@@ -77,15 +77,15 @@ const SelectorStyle = {
     border: '1px solid ' + selectedTheme.mainColor,
     boxShadow: 0,
     '&:hover': {
-      border: '1px solid ' + selectedTheme.mainColor
-    }
+      border: '1px solid ' + selectedTheme.mainColor,
+    },
   }),
   menu: provided => ({
     ...provided,
     backgroundColor: selectedTheme.backgroundColor,
     border: '1px solid ' + selectedTheme.mainColor,
     borderRadius: '0px',
-    boxShadow: 0
+    boxShadow: 0,
   }),
   option: provided => ({
     ...provided,
@@ -98,21 +98,21 @@ const SelectorStyle = {
     backgroundColor: selectedTheme.backgroundColor,
     '&:hover': {
       backgroundColor: selectedTheme.mainColor,
-      color: selectedTheme.backgroundColor
-    }
+      color: selectedTheme.backgroundColor,
+    },
   }),
   singleValue: provided => {
     return {
       ...provided,
-      color: selectedTheme.mainColor
+      color: selectedTheme.mainColor,
     }
-  }
+  },
 }
 
 const useThemeData = () => {
   const [themeData, setThemeData] = useState({ themes: [], error: false })
   const fetchThemeData = useCallback(() => {
-    (process.env.NODE_ENV === 'production'
+    ;(process.env.NODE_ENV === 'production'
       ? fetch('/themes.json').then(handleResponse)
       : import('./data/themes.json')
     )
@@ -135,7 +135,7 @@ const SettingsModal = () => {
   const [newTheme, setNewTheme] = useState()
 
   const {
-    themeData: { themes, error }
+    themeData: { themes, error },
   } = useThemeData()
 
   return (
@@ -145,10 +145,7 @@ const SettingsModal = () => {
         onClick={() => setModalHidden(!modalHidden)}
       />
       <Modal hidden={modalHidden}>
-        <IconButton
-          icon='close'
-          onClick={() => setModalHidden(!modalHidden)}
-        />
+        <IconButton icon='close' onClick={() => setModalHidden(!modalHidden)} />
         {error && <ErrorMessage>{error}</ErrorMessage>}
         <SelectContainer>
           <Headline>Theme:</Headline>
@@ -162,14 +159,10 @@ const SettingsModal = () => {
               styles={SelectorStyle}
             />
 
-            <Button
-              onClick={() => setTheme(JSON.stringify(newTheme))}
-            >
+            <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
               Apply
             </Button>
-            <Button onClick={() => window.location.reload()}>
-              Refresh
-            </Button>
+            <Button onClick={() => window.location.reload()}>Refresh</Button>
           </FormContainer>
         </SelectContainer>
         <Table>

@@ -10,10 +10,13 @@
     "serve:production": "npm-run-all --parallel serveAppData serveProductionApp",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "standard",
-    "lint:fix": "standard --fix"
+    "prettier": "prettier --check \"src/**/*.{js,json}\"",
+    "prettier:write": "prettier --write \"src/**/*.{js,json}\""
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.10",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -29,7 +32,7 @@
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "standard": "^14.3.4"
+    "prettier": "^2.0.5"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +48,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "jsxSingleQuote": true,
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid"
   }
 }

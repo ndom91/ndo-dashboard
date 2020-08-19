@@ -3,7 +3,7 @@ const defaultTheme = {
   value: 0,
   mainColor: '#f5f5f5',
   accentColor: '#ff92d0',
-  backgroundColor: '#221037'
+  backgroundColor: '#221037',
 }
 
 const setTheme = theme => {
@@ -20,6 +20,7 @@ const getTheme = () => {
 
   if (
     localStorage.getItem('theme') &&
+    typeof localStorage.getItem('theme') === 'object' &&
     localStorage.getItem('theme') !== undefined
   ) {
     selectedTheme = JSON.parse(localStorage.getItem('theme'))

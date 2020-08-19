@@ -6,23 +6,23 @@ import { handleResponse, ErrorMessage } from './elements'
 import selectedTheme from './themeManager'
 
 const SearchInput = styled.input`
-    width: 100%;
-    font-size: 16px;
-    border: none;
-    border-bottom: 5px solid ${selectedTheme.accentColor};
-    background: transparent;
-    border-radius: 0;
-    color: ${selectedTheme.mainColor};
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-bottom: 5px solid ${selectedTheme.accentColor};
+  background: transparent;
+  border-radius: 0;
+  color: ${selectedTheme.mainColor};
 `
 
 const useSearchProviders = () => {
   const [searchProviders, setSearchProviders] = useState({
     providers: [],
-    error: false
+    error: false,
   })
 
   const fetchSearchProviders = useCallback(() => {
-    (process.env.NODE_ENV === 'production'
+    ;(process.env.NODE_ENV === 'production'
       ? fetch('/search.json').then(handleResponse)
       : import('./data/search.json')
     )
@@ -42,7 +42,7 @@ const useSearchProviders = () => {
 
 const SearchBar = () => {
   const {
-    searchProviders: { providers, error }
+    searchProviders: { providers, error },
   } = useSearchProviders()
 
   const [input, setInput] = useState()
@@ -76,16 +76,15 @@ const SearchBar = () => {
       }
     })
 
-    if (!providerFound) { window.location = 'https://google.com/search?q=' + query }
+    if (!providerFound) {
+      window.location = 'https://google.com/search?q=' + query
+    }
   }
 
   return (
     <form onSubmit={e => handleSearchQuery(e)}>
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      <SearchInput
-        type='text'
-        onChange={e => setInput(e.target.value)}
-      />
+      <SearchInput type='text' onChange={e => setInput(e.target.value)} />
       <button type='submit' hidden />
     </form>
   )

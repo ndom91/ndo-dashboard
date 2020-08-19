@@ -1,86 +1,86 @@
 {
-    "apps": {
-        "newtelco": [
-            {
-                "name": "Plex",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "tv"
-            },
-            {
-                "name": "NextCloud",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "filter_drama"
-            },
-            {
-                "name": "Ghost",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "rss_feed"
-            },
-            {
-                "name": "Minecraft",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "games"
-            },
-            {
-                "name": "pfSense",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "security"
-            },
-            {
-                "name": "ESXi",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "dns"
-            },
-            {
-                "name": "Tautulli",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "bar_chart"
-            },
-            {
-                "name": "Grafana",
-                "displayURL": "example.com",
-                "URL": "https://example.com",
-                "icon": "show_chart"
-            }
-        ],
-        "textor": [
-            {
-                "name": "Pihole",
-                "displayURL": "pi.hole",
-                "URL": "http://pi.hole/admin/",
-                "icon": "vpn_lock"
-            },
-            {
-                "name": "Homeassistant",
-                "displayURL": "casa.pi",
-                "URL": "http://casa.pi",
-                "icon": "vpn_lock"
-            },
-            {
-                "name": "Urbackup",
-                "displayURL": "urbackup.textor.local",
-                "URL": "http://urbackup.textor.local",
-                "icon": "vpn_lock"
-            },
-            {
-                "name": "Fritzbox",
-                "displayURL": "192.168.0.1",
-                "URL": "http://192.168.0.1",
-                "icon": "vpn_lock"
-            },
-            {
-                "name": "CasaPi Health",
-                "displayURL": "health.casapi.textor.local",
-                "URL": "http://health.casapi.textor.local",
-                "icon": "vpn_lock"
-            }
-        ]
-    }
+  "apps": {
+    "newtelco": [
+      {
+        "name": "Plex",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "tv"
+      },
+      {
+        "name": "NextCloud",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "filter_drama"
+      },
+      {
+        "name": "Ghost",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "rss_feed"
+      },
+      {
+        "name": "Minecraft",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "games"
+      },
+      {
+        "name": "pfSense",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "security"
+      },
+      {
+        "name": "ESXi",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "dns"
+      },
+      {
+        "name": "Tautulli",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "bar_chart"
+      },
+      {
+        "name": "Grafana",
+        "displayURL": "example.com",
+        "URL": "https://example.com",
+        "icon": "show_chart"
+      }
+    ],
+    "textor": [
+      {
+        "name": "Pihole",
+        "displayURL": "pi.hole",
+        "URL": "http://pi.hole/admin/",
+        "icon": "map-signs"
+      },
+      {
+        "name": "Homeassistant",
+        "displayURL": "casa.pi",
+        "URL": "http://casa.pi",
+        "icon": "house-user"
+      },
+      {
+        "name": "Urbackup",
+        "displayURL": "urbackup.textor.local",
+        "URL": "http://urbackup.textor.local",
+        "icon": "undo"
+      },
+      {
+        "name": "Fritzbox",
+        "displayURL": "192.168.0.1",
+        "URL": "http://192.168.0.1",
+        "icon": "wifi"
+      },
+      {
+        "name": "CasaPi Health",
+        "displayURL": "health.casapi.textor.local",
+        "URL": "http://health.casapi.textor.local",
+        "icon": "laptop-medical"
+      }
+    ]
+  }
 }
