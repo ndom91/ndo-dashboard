@@ -13,6 +13,8 @@ const SearchInput = styled.input`
   background: transparent;
   border-radius: 0;
   color: ${selectedTheme.mainColor};
+  padding: 10px;
+  outline: none;
 `
 
 const useSearchProviders = () => {

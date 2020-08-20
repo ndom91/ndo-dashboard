@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import selectedTheme from './themeManager'
 import MaterialIcon from 'material-icons-react'
+import * as Icon from 'react-feather'
 
 // File for elements that are/can be reused across the entire site.
 
@@ -84,9 +85,12 @@ export const IconButton = props => {
     props.onClick !== '' &&
     props.onClick !== undefined
   ) {
+    // const IconName = `Icon.${props.icon}`
+    const IconName = 'Icon.Circle'
     return (
       <StyledButton onClick={props.onClick}>
-        <MaterialIcon icon={props.icon} color={selectedTheme.mainColor} />
+        {/* <MaterialIcon icon={props.icon} color={selectedTheme.mainColor} /> */}
+        <IconName color='white' />
       </StyledButton>
     )
   }

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { ZeitProvider, CssBaseline } from '@zeit-ui/react'
 
 import SearchBar from './components/searchBar'
 import Greeter from './components/greeter'
@@ -9,7 +8,7 @@ import BookmarkList from './components/bookmarkList'
 import SettingsModal from './components/settingsModal'
 
 import selectedTheme from './components/themeManager'
-import './style.css'
+import Background from './bg2.svg'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,16 +32,29 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const Bg = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(${Background});
+  z-index: 1;
+  opacity: 0.1;
+`
+
 const AppContainer = styled.div`
+  position: relative;
   max-width: 80%;
   margin: auto;
   padding: 10px;
+  background: transparent;
+  z-index: 99;
 `
 
 const App = () => {
   return (
-    <ZeitProvider>
-      <CssBaseline />
+    <>
       <GlobalStyle />
       <AppContainer>
         <SearchBar />
@@ -51,7 +63,8 @@ const App = () => {
         <AppList />
         <BookmarkList />
       </AppContainer>
-    </ZeitProvider>
+      <Bg />
+    </>
   )
 }
 

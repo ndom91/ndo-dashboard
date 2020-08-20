@@ -2,17 +2,17 @@ FROM node:current-alpine
 
 WORKDIR /app
 
-COPY yarn.lock .
+COPY package-lock.lock .
 COPY package.json .
 
-RUN [ "yarn", "install" ]
+RUN [ "npm", "install" ]
 
 COPY data /app/data
 COPY src /app/src
 COPY public /app/public
 
-RUN [ "yarn", "build" ]
+RUN [ "npm", "build" ]
 
 EXPOSE 3000 8080
 
-CMD [ "yarn", "serve:production" ]
+CMD [ "npm", "serve:production" ]
