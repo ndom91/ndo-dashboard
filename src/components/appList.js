@@ -1,14 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-// import MaterialIcon from 'material-icons-react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faHouseUser,
-  faMapSigns,
-  faUndo,
-  faWifi,
-  faLaptopMedical,
-} from '@fortawesome/free-solid-svg-icons'
+import { SVG } from 'css.gg'
 
 import styled from 'styled-components'
 import selectedTheme from './themeManager'
@@ -20,8 +11,6 @@ import {
   Item,
   ErrorMessage,
 } from './elements'
-
-library.add(faHouseUser, faMapSigns, faUndo, faWifi, faLaptopMedical)
 
 const IconContainer = styled.div`
   margin-right: 0.5vh;
@@ -119,10 +108,9 @@ const AppList = () => {
             <Item key={[name, idx].join('')}>
               <App>
                 <IconContainer>
-                  <FontAwesomeIcon
-                    icon={app.icon}
-                    color={selectedTheme.mainColor}
-                  />
+                  <svg width='24' height='24'>
+                    <use xlinkHref={SVG + `#gg-${app.icon}`} />
+                  </svg>
                 </IconContainer>
                 <DetailsContainer>
                   <Link
